@@ -1,0 +1,7 @@
+production:
+  adapter: sqlite3
+  database: db/redmine.sqlite3
+
+development:
+  adapter: sqlite3
+  database: db/redmine.sqlite3

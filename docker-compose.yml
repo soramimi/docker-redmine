@@ -1,0 +1,10 @@
+version: '2'
+services:
+  redmine:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - "./files:/var/files"
+      - "./data/db:/var/www/redmine/db"
+      - "./data/files:/var/www/redmine/files"
