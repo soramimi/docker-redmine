@@ -6,6 +6,6 @@ services:
     ports:
       - "80:80"
     volumes:
-      - "./files:/var/files"
-#      - "./data/db:/var/www/redmine/db"
-#      - "./data/files:/var/www/redmine/files"
+      - "./share:/root/share"
+      - "./data/db:/var/www/redmine/db"
+      - "./data/files:/var/www/redmine/files"
