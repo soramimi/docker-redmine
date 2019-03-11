@@ -7,5 +7,5 @@ services:
       - "80:80"
     volumes:
       - "./share:/root/share"
-      - "./data/db:/var/www/redmine/db"
-      - "./data/files:/var/www/redmine/files"
+      - "./data/db:/var/www/redmine/db:rw"
+      - "./data/files:/var/www/redmine/files:rw"

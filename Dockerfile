@@ -28,14 +28,8 @@ ADD share/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN cd /var/www/redmine && bundle install --without development test --path vendor/bundle
 RUN cd /var/www/redmine && bundle exec rake generate_secret_token
 
-RUN touch /var/www/redmine/db/redmine.sqlite3
-RUN touch /var/www/redmine/db/schema.rb
-
-#RUN cd /var/www/redmine && RAILS_ENV=production bundle exec rake db:migrate
-#RUN cd /var/www/redmine && RAILS_ENV=production REDMINE_LANG=ja bundle exec rake redmine:load_default_data
-
 RUN chown www-data:www-data /var/www/redmine -R
-RUN mv /var/www/redmine/db/migrate /tmp/
+RUN mv /var/www/redmine/db/migrate /var/www/redmine/db-migrate
 RUN ln -s /var/www/redmine/public /var/www/html/redmine
 
 CMD /root/share/run.sh
