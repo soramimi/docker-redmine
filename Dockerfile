@@ -28,7 +28,10 @@ ADD files/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN cd /var/www/redmine && bundle install --without development test --path vendor/bundle
 RUN cd /var/www/redmine && bundle exec rake generate_secret_token
 
-#RUN chown www-data:www-data /var/www/redmine -R
+RUN cd /var/www/redmine && RAILS_ENV=production bundle exec rake db:migrate
+RUN cd /var/www/redmine && RAILS_ENV=production REDMINE_LANG=ja bundle exec rake redmine:load_default_data
+
+RUN chown www-data:www-data /var/www/redmine -R
 RUN ln -s /var/www/redmine/public /var/www/html/redmine
 
 CMD /var/files/run.sh

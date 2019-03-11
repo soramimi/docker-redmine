@@ -2,6 +2,7 @@ version: '2'
 services:
   redmine:
     build: .
+    container_name: "redmine"
     ports:
       - "80:80"
     volumes:
