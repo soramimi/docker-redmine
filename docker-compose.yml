@@ -4,7 +4,7 @@ services:
     build: .
     container_name: "redmine"
     ports:
-      - "80:80"
+      - "8080:80"
     volumes:
       - "./share:/root/share"
       - "./data/db:/var/www/redmine/db:rw"
