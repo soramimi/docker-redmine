@@ -1,2 +1,1 @@
-#!/bin/sh
-tar zcvf redmine-data.tar.gz data
+docker exec redmine /root/share/backup.sh

@@ -2,9 +2,11 @@
 
 export LANG=C
 
-cp -a /var/www/redmine/db-migrate /var/www/redmine/db/migrate
-
+service postgresql start
 service apache2 start
+chmod 666 /usr/share/redmine/instances/default/config/secret_key.txt
+chmod 666 /usr/share/redmine/instances/default/config/database.yml
+chmod 777 /var/cache/redmine/default/tmp
 
 while :
 do
