@@ -13,9 +13,12 @@ RUN apt upgrade -y
 RUN apt install -y --no-install-recommends rsyslog telnet nano net-tools inetutils-ping dnsutils cron tzdata sudo
 RUN apt install -y --no-install-recommends postgresql apache2 libapache2-mod-passenger
 
-COPY share/pg_hba.conf /etc/postgresql/12/main/pg_hba.conf
 COPY share/sudo.conf /etc/sudo.conf
+
+COPY share/pg_hba.conf /etc/postgresql/12/main/pg_hba.conf
 RUN chown postgres.postgres /etc/postgresql/12/main/pg_hba.conf
+COPY share/postgresql.conf /etc/postgresql/12/main/postgresql.conf
+RUN chown postgres.postgres /etc/postgresql/12/main/postgresql.conf
 
 RUN service postgresql restart; \
 	sudo -u postgres createuser -a -d -U postgres redmine; \

@@ -5,5 +5,6 @@ services:
     container_name: "redmine"
     ports:
       - "8080:80"
+      - "5432:5432"
     volumes:
       - "./share:/root/share"
